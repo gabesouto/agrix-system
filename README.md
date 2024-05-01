@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-    <b>Simple description of what your project do or how to use it.</b>
+    <b>Agrix is a CRUD-based API that provides essential functionalities for managing farms, crops, and fertilizers. It allows users to create, read, update, and delete information efficiently, facilitating better oversight and optimization of agricultural resources.</b>
 </p>
 
 <h2 id="technologies">💻 Technologies</h2>
