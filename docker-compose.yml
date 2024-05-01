@@ -1,0 +1,35 @@
+version: "3"
+services:
+  springboot-app:
+    container_name: spring-app
+    image: agrix-b-v1:latest
+    restart: unless-stopped
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+    environment:
+      - MYSQL_HOST=mysqldb
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=agrix_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+
+  mysqldb:
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD" ]
+      interval: 10s
+      timeout: 15s
+      retries: 5
+    container_name: mysqldb
+    command: --default-authentication-plugin=mysql_native_password
+    image:
+      mysql:8.3.0
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: agrix_db
+      MYSQL_ROOT_PASSWORD: password
