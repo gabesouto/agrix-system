@@ -61,6 +61,8 @@ Here's a list the main routes of this API, and what are their expected request b
 |----------------------|-----------------------------------------------------
 | <kbd>POST /persons</kbd>     | creates and register a new  user [response details](#post-auth-detail)
 | <kbd>POST /auth/login</kbd>     | authenticate user into the api see [request details](#post-auth-login)
+| <kbd>GET /farms</kbd>     | retrieves all registered farms [request details](#get-farms)
+
 
 <h3 id="post-auth-detail">POST /persons</h3>
 
@@ -98,6 +100,26 @@ Here's a list the main routes of this API, and what are their expected request b
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZ3JpeCIsInN1YiI6Im1ycm9ib3QiLCJleHAiOjE2ODk5ODY2NTN9.lyha4rMcMhFd_ij-farGCXuJy-1Tun1IpJd5Ot6z_5w"
 }
+```
+
+
+<h3 id="get-farms">GET /farms</h3>
+
+
+**RESPONSE**
+```json
+[
+  {
+    "id": 1,
+    "name": "Fazendinha",
+    "size": 5.0
+  },
+  {
+    "id": 2,
+    "name": "Fazenda do Júlio",
+    "size": 2.5
+  }
+]
 ```
 
 <h2 id="colab">🤝 Collaborators</h2>
