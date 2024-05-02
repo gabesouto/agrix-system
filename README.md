@@ -41,7 +41,7 @@ git clone git@github.com:gabesouto/agrix-system.git
 
 <h3>Config application.properties</h2>
 
-Use the ` application-example.properties` as reference to create your configuration file `application.properties` with your ports and .env variables
+Complete the  ` application.properties` file  with your MySQL and port info.
 
 
 <h3>Starting</h3>
@@ -55,38 +55,48 @@ mvn install
 
 <h2 id="routes">📍 API Endpoints</h2>
 
-Here you can list the main routes of your API, and what are their expected request bodies.
+Here's a list the main routes of this API, and what are their expected request bodies.
 ​
 | route               | description                                          
 |----------------------|-----------------------------------------------------
-| <kbd>GET /authenticate</kbd>     | retrieves user info see [response details](#get-auth-detail)
-| <kbd>POST /authenticate</kbd>     | authenticate user into the api see [request details](#post-auth-detail)
+| <kbd>POST /persons</kbd>     | creates and register a new  user [response details](#post-auth-detail)
+| <kbd>POST /auth/login</kbd>     | authenticate user into the api see [request details](#post-auth-login)
 
-<h3 id="get-auth-detail">GET /authenticate</h3>
-
-**RESPONSE**
-```json
-{
-  "name": "Fernanda Kipper",
-  "age": 20,
-  "email": "her-email@gmail.com"
-}
-```
-
-<h3 id="post-auth-detail">POST /authenticate</h3>
+<h3 id="post-auth-detail">POST /persons</h3>
 
 **REQUEST**
 ```json
 {
-  "username": "fernandakipper",
-  "password": "4444444"
+  "username": "zerocool",
+  "password": "senhasecreta",
+  "role": "ADMIN"
 }
 ```
 
 **RESPONSE**
 ```json
 {
-  "token": "OwoMRHsaQwyAgVoc3OXmL1JhMVUYXGGBbCTK0GBgiYitwQwjf0gVoBmkbuyy0pSi"
+  "id": 1,
+  "username": "zerocool",
+  "role": "ADMIN"
+}
+```
+
+
+<h3 id="post-auth-login">POST /auth/login</h3>
+
+**REQUEST**
+```json
+{
+  "username": "zerocool",
+  "password": "senhasecreta"
+}
+```
+
+**RESPONSE**
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZ3JpeCIsInN1YiI6Im1ycm9ib3QiLCJleHAiOjE2ODk5ODY2NTN9.lyha4rMcMhFd_ij-farGCXuJy-1Tun1IpJd5Ot6z_5w"
 }
 ```
 
