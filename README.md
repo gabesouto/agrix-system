@@ -1,7 +1,7 @@
 <h1 align="center" style="font-weight: bold;">AGRIX</h1>
 
 <p align="center">
- <a href="#tech">Technologies</a> • 
+ <a href="#technologies">Technologies</a> • 
  <a href="#started">Getting Started</a> • 
   <a href="#routes">API Endpoints</a> •
  <a href="#colab">Collaborators</a> •
@@ -59,9 +59,21 @@ Here's a list the main routes of this API, and what are their expected request b
 ​
 | route               | description                                          
 |----------------------|-----------------------------------------------------
-| <kbd>POST /persons</kbd>     | creates and register a new  user [response details](#post-auth-detail)
-| <kbd>POST /auth/login</kbd>     | authenticate user into the api see [request details](#post-auth-login)
-| <kbd>GET /farms</kbd>     | retrieves all registered farms [request details](#get-farms)
+| <kbd>POST /persons</kbd>     | creates and register a new  user, see [response details](#post-auth-detail)
+| <kbd>POST /auth/login</kbd>     | authenticate user into the api, see [request details](#post-auth-login)
+| <kbd>GET /farms</kbd>     | retrieves all registered farms, see [request details](#get-farms)
+| <kbd>GET /farms/{farmId}</kbd>     | retrieves all registered farms, see [request details](#get-farm-id)
+| <kbd>POST /farms/{farmId}/crops</kbd>     | register crops to a farm, see [request details](#post-crops-farm)
+| <kbd>GET /farms/{farmId}/crops</kbd>     | retrieves crops related to a farm, see [request details](#get-crops-farm)
+| <kbd>GET /crops</kbd>     | retrieves all crops, see [request details](#get-crops)
+| <kbd>GET /crops/cropId</kbd>     | retrieves a specific crop, see [request details](#get-crop-id)
+| <kbd>GET /crops/search?</kbd>     | retrieves a specific crop based on the date set on the search params, see [request details](#get-crop-search)
+| <kbd>POST /fertilizer</kbd>     | register a new fertilizer, see [request details](#post-fertilizer)
+| <kbd>GET /fertilizer</kbd>     | retrieves all  fertilizers, see [request details](#get-fertilizers)
+| <kbd>GET /fertilizer/{fertilizerId}</kbd>     | retrieves a specific fertilizer, see [request details](#get-fertilizers-id)
+| <kbd>POST /crops/{cropId}/fertilizers/{fertilizerId}</kbd>     | associates  a specific fertilizer to a crop, see [request details](#post-fertilizers-crop)
+| <kbd>GET /crops/{cropId}/fertilizers</kbd>     | retrieves fertilizers related to a crop, see [request details](#get-fertilizers-crop)
+
 
 
 <h3 id="post-auth-detail">POST /persons</h3>
@@ -121,6 +133,230 @@ Here's a list the main routes of this API, and what are their expected request b
   }
 ]
 ```
+
+
+
+<h3 id="get-farm-id">GET /farms/{farmId}</h3>
+
+
+**RESPONSE**
+```json
+{
+  "id": 3,
+  "name": "My Cabbages!",
+  "size": 3.49
+}
+```
+
+<h3 id="post-crops-farm">POST /farms/{farmId}/crops</h3>
+
+**REQUEST**
+```json
+{
+  "name": "Couve-flor",
+  "plantedArea": 5.43,
+  "plantedDate": "2022-12-05",
+  "harvestDate": "2023-06-08"
+}
+
+´´´
+
+**RESPONSE**
+```json
+{
+  "id": 1,
+  "name": "Couve-flor",
+  "plantedArea": 5.43,
+  "plantedDate": "2022-12-05",
+  "harvestDate": "2023-06-08",
+  "farmId": 1
+}
+```
+
+
+<h3 id="get-crops-farms">GET /farms/{farmId}/crops</h3>
+
+
+**RESPONSE**
+```json
+[
+  {
+    "id": 1,
+    "name": "Couve-flor",
+    "plantedArea": 5.43,
+    "plantedDate": "2022-12-05",
+    "harvestDate": "2023-06-08",
+    "farmId": 1
+  },
+  {
+    "id": 2,
+    "name": "Alface",
+    "plantedArea": 21.3,
+    "plantedDate": "2022-02-15",
+    "harvestDate": "2023-02-20",
+    "farmId": 1
+  }
+]
+```
+
+<h3 id="get-crops">GET /crops</h3>
+
+
+**RESPONSE**
+```json
+[
+  {
+    "id": 1,
+    "name": "Couve-flor",
+    "plantedArea": 5.43,
+    "farmId": 1
+  },
+  {
+    "id": 2,
+    "name": "Alface",
+    "plantedArea": 21.3,
+    "farmId": 1
+  },
+  {
+    "id": 3,
+    "name": "Tomate",
+    "plantedArea": 1.9,
+    "farmId": 2
+  }
+]
+```
+
+
+<h3 id="get-crop-id">GET /crops/{cropId}</h3>
+
+
+**RESPONSE**
+```json
+{
+  "id": 3,
+  "name": "Tomate",
+  "plantedArea": 1.9,
+  "farmId": 2
+}
+```
+
+<h3 id="get-crop-search">GET /crops/search?start=2023-01-07&end=2024-01-10</h3>
+
+
+**RESPONSE**
+```json
+[
+  {
+    "id": 1,
+    "name": "Couve-flor",
+    "plantedArea": 5.43,
+    "plantedDate": "2022-02-15",
+    "harvestDate": "2023-02-20",
+    "farmId": 1
+  },
+  {
+    "id": 3,
+    "name": "Tomate",
+    "plantedArea": 1.9,
+    "plantedDate": "2023-05-22",
+    "harvestDate": "2024-01-10",
+    "farmId": 2
+  }
+]
+```
+
+<h3 id="post-fertilizer">POST /fertilizer</h3>
+
+**REQUEST**
+```json
+{
+  "name": "Compostagem",
+  "brand": "Feita em casa",
+  "composition": "Restos de alimentos"
+}
+```
+
+**RESPONSE**
+```json
+{
+  "id": 1,
+  "name": "Compostagem",
+  "brand": "Feita em casa",
+  "composition": "Restos de alimentos"
+}
+```
+
+<h3 id="get-fertilizers">GET /fertilizers</h3>
+
+
+**RESPONSE**
+```json
+[
+  {
+    "id": 1,
+    "name": "Compostagem",
+    "brand": "Feita em casa",
+    "composition": "Restos de alimentos"
+  },
+  {
+    "id": 2,
+    "name": "Húmus",
+    "brand": "Feito pelas minhocas",
+    "composition": "Muitos nutrientes"
+  },
+  {
+    "id": 3,
+    "name": "Adubo",
+    "brand": "Feito pelas vaquinhas",
+    "composition": "Esterco"
+  }
+]
+```
+
+<h3 id="get-fertilizers-id">GET /fertilizers/{fertilizerId}</h3>
+
+
+**RESPONSE**
+```json
+{
+  "id": 3,
+  "name": "Adubo",
+  "brand": "Feito pelas vaquinhas",
+  "composition": "Esterco"
+}
+```
+
+<h3 id="post-fertilizers-crop">POST /crops/{cropId}/fertilizers/{fertilizerId}</h3>
+
+**RESPONSE**
+```json
+{
+Fertilizante e plantação associados com sucesso!
+}
+```
+<h3 id="get-fertilizers-crop">GET /crops/{cropId}/fertilizers</h3>
+
+
+**RESPONSE**
+```json
+[
+  {
+    "id": 2,
+    "name": "Húmus",
+    "brand": "Feito pelas minhocas",
+    "composition": "Muitos nutrientes"
+  },
+  {
+    "id": 3,
+    "name": "Adubo",
+    "brand": "Feito pelas vaquinhas",
+    "composition": "Esterco"
+  }
+]
+```
+
+
+
 
 <h2 id="colab">🤝 Collaborators</h2>
 
