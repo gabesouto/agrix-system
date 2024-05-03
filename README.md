@@ -3,9 +3,7 @@
 <p align="center">
  <a href="#technologies">Technologies</a> • 
  <a href="#started">Getting Started</a> • 
-  <a href="#routes">API Endpoints</a> •
- <a href="#colab">Collaborators</a> •
- <a href="#contribute">Contribute</a>
+  <a href="#routes">API Endpoints</a> 
 </p>
 
 <p align="center">
@@ -158,8 +156,7 @@ Here's a list the main routes of this API, and what are their expected request b
   "plantedDate": "2022-12-05",
   "harvestDate": "2023-06-08"
 }
-
-´´´
+```
 
 **RESPONSE**
 ```json
@@ -354,54 +351,7 @@ Fertilizante e plantação associados com sucesso!
   }
 ]
 ```
+#  How To Reach Me:
+ <a href="mailto:soutogabriel04@gmail.com?"><img src="https://img.shields.io/badge/gmail-%23DD0031.svg?&style=for-the-badge&logo=gmail&logoColor=white"/></a>
+ [![image](https://img.shields.io/badge/Linkedin-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabrielsouto-developer/)
 
-
-
-
-<h2 id="colab">🤝 Collaborators</h2>
-
-Special thank you for all people that contributed for this project.
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/61896274?v=4" width="100px;" alt="Fernanda Kipper Profile Picture"/><br>
-        <sub>
-          <b>Fernanda Kipper</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://t.ctcdn.com.br/n7eZ74KAcU3iYwnQ89-ul9txVxc=/400x400/smart/filters:format(webp)/i490769.jpeg" width="100px;" alt="Elon Musk Picture"/><br>
-        <sub>
-          <b>Elon Musk</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="#">
-        <img src="https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg" width="100px;" alt="Foto do Steve Jobs"/><br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
-      </a>
-    </td>
-  </tr>
-</table>
-
-<h2 id="contribute">📫 Contribute</h2>
-
-Here you will explain how other developers can contribute to your project. For example, explaining how can create their branches, which patterns to follow and how to open an pull request
-
-1. `git clone https://github.com/Fernanda-Kipper/text-editor.git`
-2. `git checkout -b feature/NAME`
-3. Follow commit patterns
-4. Open a Pull Request explaining the problem solved or feature made, if exists, append screenshot of visual modifications and wait for the review!
-
-<h3>Documentations that might help</h3>
-
-[📝 How to create a Pull Request](https://www.atlassian.com/br/git/tutorials/making-a-pull-request)
-
-[💾 Commit pattern](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
