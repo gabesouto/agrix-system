@@ -48,7 +48,16 @@ How to start your project
 
 ```bash
 cd agrix-system
+
+```
+Install the dependencies
+```bash
 mvn install
+```
+
+Run the application
+```bash
+mvn spring-boot:run
 ```
 
 <h2 id="routes">📍 API Endpoints</h2>
