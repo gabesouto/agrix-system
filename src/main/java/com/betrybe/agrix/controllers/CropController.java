@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Controller for the Crop resource.
- */
+
 @RestController
 @RequestMapping("/crops")
 public class CropController {
@@ -34,9 +32,7 @@ public class CropController {
     this.fertilizerService = fertilizerService;
   }
 
-  /**
-   * List all Crops.
-   */
+
 
   @GetMapping
   @PreAuthorize("hasAuthority('ROLE_ADMIN') or hasAuthority('ROLE_MANAGER')")
@@ -62,13 +58,7 @@ public class CropController {
     return ResponseEntity.ok(Optional.ofNullable(this.service.getFertilizerByCrop(cropId)));
   }
 
-  /**
-   * Retrieves a list of crops per date.
-   *
-   * @param start The ID of the crop from which to retrieve crops.
-   * @param end   The ID of the crop from which to retrieve crops.
-   * @return the list.
-   */
+
   @GetMapping("/search")
   public ResponseEntity<List<CropDto>> searchByHarvestDateBetweenDates(
       @RequestParam LocalDate start,

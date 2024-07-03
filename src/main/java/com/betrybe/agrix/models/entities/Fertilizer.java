@@ -9,10 +9,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import java.util.List;
 
-/**
- * Represents a fertilzer used in agricultural practices. Each fertilizer has an identifier, name,
- * composition, and associated crops it can be used for.
- */
+
 @Entity
 @Table(name = "fertilizers")
 public class Fertilizer {
@@ -49,14 +46,6 @@ public class Fertilizer {
 
   }
 
-  /**
-   * Constructs a new Fertilizer object with the given parameters.
-   *
-   * @param id          The unique identifier for the fertilizer.
-   * @param name        The name of the fertilizer.
-   * @param composition The composition or ingredients of the fertilizer.
-   * @param brand       The brand.
-   */
 
   public Fertilizer(Long id, String name, String brand, String composition) {
     this.id = id;

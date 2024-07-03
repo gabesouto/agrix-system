@@ -12,9 +12,6 @@ import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Entity class representing a farm.
- */
 @Entity
 @Table(name = "farms")
 public class Farm {
@@ -38,19 +35,9 @@ public class Farm {
     this.crops = crops;
   }
 
-  /**
-   * Default constructor.
-   */
   public Farm() {
   }
 
-  /**
-   * Parameterized constructor.
-   *
-   * @param id   The ID of the farm.
-   * @param name The name of the farm.
-   * @param size The size of the farm.
-   */
   public Farm(Long id, String name, double size, List<Crop> crops) {
     this.id = id;
     this.name = name;
@@ -58,56 +45,31 @@ public class Farm {
     this.crops = crops;
   }
 
-  /**
-   * Retrieves the ID of the farm.
-   *
-   * @return The ID of the farm.
-   */
+
   public Long getId() {
     return id;
   }
 
-  /**
-   * Sets the ID of the farm.
-   *
-   * @param id The ID of the farm.
-   */
   public void setId(Long id) {
     this.id = id;
   }
 
-  /**
-   * Retrieves the name of the farm.
-   *
-   * @return The name of the farm.
-   */
+
   public String getName() {
     return name;
   }
 
-  /**
-   * Sets the name of the farm.
-   *
-   * @param name The name of the farm.
-   */
+
   public void setName(String name) {
     this.name = name;
   }
 
-  /**
-   * Retrieves the size of the farm.
-   *
-   * @return The size of the farm.
-   */
+
   public double getSize() {
     return size;
   }
 
-  /**
-   * Sets the size of the farm.
-   *
-   * @param size The size of the farm.
-   */
+
   public void setSize(double size) {
     this.size = size;
   }

@@ -14,9 +14,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-/**
- * Class representing a person.
- */
 @Entity
 public class Person implements UserDetails {
 
@@ -34,9 +31,7 @@ public class Person implements UserDetails {
   public Person() {
   }
 
-  /**
-   * Constructor of entity person.
-   */
+
   public Person(Long id, String username, String password, Role role) {
     this.id = id;
     this.username = username;

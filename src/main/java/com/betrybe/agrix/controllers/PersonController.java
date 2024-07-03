@@ -26,12 +26,7 @@ public class PersonController {
     this.service = service;
   }
 
-  /**
-   * Retrieves a person created.
-   *
-   * @param person The person.
-   * @return the person.
-   */
+
   @PostMapping
   public ResponseEntity<PersonDto> createPerson(@RequestBody Person person) {
     Person newPerson = this.service.create(person);

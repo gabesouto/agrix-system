@@ -2,9 +2,7 @@ package com.betrybe.agrix.dtos;
 
 import java.time.LocalDate;
 
-/**
- * Data Transfer Object (DTO) representing a crop.
- */
+
 public record CropDto(
     Long id,
     String name,

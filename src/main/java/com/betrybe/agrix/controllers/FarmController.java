@@ -26,55 +26,31 @@ public class FarmController {
 
   private final FarmService farmService;
 
-  /**
-   * Constructs a new instance of FarmController.
-   *
-   * @param farmService The FarmService instance to use.
-   */
+
   @Autowired
   public FarmController(FarmService farmService) {
     this.farmService = farmService;
   }
 
-  /**
-   * Handles POST requests to create a new farm.
-   *
-   * @param farmDto The DTO containing farm information.
-   * @return ResponseEntity containing the response status and created farm.
-   */
+
   @PostMapping
   public ResponseEntity<Farm> createFarm(@RequestBody FarmDto farmDto) {
     Farm newFarm = this.farmService.insertFarm(farmDto.toFarm());
     return ResponseEntity.status(HttpStatus.CREATED).body(newFarm);
   }
 
-  /**
-   * Handles GET requests to test the endpoint.
-   *
-   * @return A string indicating that the endpoint is up.
-   */
+
   @GetMapping
   public ResponseEntity<List<Farm>> getFarms() {
     return ResponseEntity.ok(this.farmService.getAllFarms());
   }
 
-  /**
-   * Retrieves a farm by its ID.
-   *
-   * @param farmId The ID of the farm to retrieve.
-   * @return ResponseEntity containing the farm if found, or an empty body if not found.
-   */
+
   @GetMapping("/{farmId}")
   public ResponseEntity<Optional<Farm>> getFarmById(@PathVariable Long farmId) {
     return ResponseEntity.ok(this.farmService.getFarmById(farmId));
   }
 
-  /**
-   * Retrieves all crops from a specified farm.
-   *
-   * @param farmId The ID of the farm from which to retrieve crops.
-   * @return ResponseEntity containing the list of crops from the farm.
-   */
   @GetMapping("/{farmId}/crops")
   public ResponseEntity<List<CropDto>> getCropsFromFarm(@PathVariable Long farmId) {
     return ResponseEntity.ok(this.farmService.getAllCropsFromFarm(farmId));

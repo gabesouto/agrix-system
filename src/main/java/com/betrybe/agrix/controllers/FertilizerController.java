@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Controller class for managing fertlizier-related endpoints.
- */
+
 @RestController
 @RequestMapping("/fertilizers")
 public class FertilizerController {
@@ -31,9 +29,6 @@ public class FertilizerController {
     this.fertilizerService = fertilizerService;
   }
 
-  /**
-   * Handles GET requests to view all fertilizers.
-   */
   @GetMapping
   @PreAuthorize("hasAuthority('ROLE_ADMIN')")
   public List<FertilizerDto> getAllFertilizers() {
@@ -42,12 +37,7 @@ public class FertilizerController {
         .collect(Collectors.toList());
   }
 
-  /**
-   * Handles POST requests to create a new farm.
-   *
-   * @param fertilizerDto The DTO containing fertilizier information.
-   * @return ResponseEntity containing the response status and created fertilizier.
-   */
+
   @PostMapping
   public ResponseEntity<FertilizerDto> createFarm(@RequestBody FertilizerDto fertilizerDto) {
     Fertilizer newFertilizer = this.fertilizerService.insertFertilizer(
@@ -60,12 +50,7 @@ public class FertilizerController {
     return ResponseEntity.status(HttpStatus.CREATED).body(response);
   }
 
-  /**
-   * Retrieves a farm by its ID.
-   *
-   * @param fertilizerId The ID of the fertilizer to retrieve.
-   * @return ResponseEntity containing the fertilizer if found, or an empty body if not found.
-   */
+
   @GetMapping("/{fertilizerId}")
   public ResponseEntity<Optional<FertilizerDto>> getFertilizerById(
       @PathVariable Long fertilizerId) {

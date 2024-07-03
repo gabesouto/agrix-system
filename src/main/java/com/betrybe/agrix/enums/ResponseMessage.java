@@ -1,8 +1,6 @@
 package com.betrybe.agrix.enums;
 
-/**
- * Enum representing different response messages.
- */
+
 public enum ResponseMessage {
   SUCCESS("Operação realizada com sucesso."),
   NOT_FOUND("Não foi encontrado o recurso."),

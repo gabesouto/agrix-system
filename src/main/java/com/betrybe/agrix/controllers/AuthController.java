@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Controller responsible for auth.
- */
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -29,9 +26,7 @@ public class AuthController {
     this.tokenService = tokenService;
   }
 
-  /**
-   * Login route, returns a token or returns 403.
-   */
+
   @PostMapping("/login")
   public ResponseEntity<TokenDto> login(@RequestBody LoginDto payload) {
     UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(

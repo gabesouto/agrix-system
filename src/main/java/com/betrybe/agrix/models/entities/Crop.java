@@ -12,9 +12,7 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
- * Entity class representing a crop.
- */
+
 @Entity
 @Table(name = "crops")
 public class Crop {
@@ -44,9 +42,6 @@ public class Crop {
   public Crop() {
   }
 
-  /**
-   * Constructor of entity crop.
-   */
 
 
   public Crop(
@@ -90,29 +85,14 @@ public class Crop {
     this.plantedArea = plantedArea;
   }
 
-  /**
-   * Retrieves the ID of the crop.
-   *
-   * @return The ID of the crop.
-   */
   public Long getId() {
     return id;
   }
 
-  /**
-   * Retrieves the farm associated with the crop.
-   *
-   * @return The farm associated with the crop.
-   */
   public Farm getFarm() {
     return farm;
   }
 
-  /**
-   * Sets the farm associated with the crop.
-   *
-   * @param farm The farm to associate with the crop.
-   */
   public void setFarm(Farm farm) {
     this.farm = farm;
   }
